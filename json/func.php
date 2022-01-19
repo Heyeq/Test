@@ -138,3 +138,44 @@ function validateUser ($user, &$errors){
     }
 return $isValid;
 }
+
+function  upvalidateUser ($user, &$errors){
+
+    $isValid = true;
+    $pattern= '/^([a-z]{2,2})+$/iu';
+    if (preg_match($pattern, $user['full_name'])) {
+    }
+    else{
+        $isValid = false;
+        $errors ['full_name'] = 'Данное поле может содержать только буквы';
+    }
+    if (empty($user['login'])  ) {
+        $isValid = false;
+        $errors ['login'] = 'Данный логин не может быть пустым';
+    }
+
+    if (!$user['full_name'] || strlen($user['full_name']) < 2 || strlen($user['full_name'] ) > 2 ) {
+        $isValid = false;
+        $errors ['full_name'] = 'Данно поле может содержать не более двух символов латинского алфавита';
+    }
+    if (!$user['login'] || strlen($user['login']) < 6 || strlen($user['login']) > 6 ) {
+        $isValid = false;
+        $errors ['login'] = 'Логин не должен быть меньше 6 символов';
+    }
+
+    if (!$user['email'] && !filter_var($user['email'], FILTER_VALIDATE_EMAIL)) {
+        $isValid = false;
+        $errors ['email'] = 'Проврьте правельность ввода';
+    }
+    if (!$user['password'] || strlen($user['password']) < 6 || strlen($user['password']) > 6) {
+        $isValid = false;
+        $errors ['password'] = 'Заполните пустое поле';
+    }
+
+    return $isValid;
+}
+
+
+
+
+

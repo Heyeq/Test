@@ -15,7 +15,7 @@ $errors = [
 $isValid = true;
 if($_SERVER['REQUEST_METHOD']=== 'POST') {
     $user = array_merge($user, $_POST);
-
+    $isValid = upvalidateUser($user, $errors);
 
     if ($isValid) {
         $user = updateUser($_POST, $userId);
@@ -59,7 +59,7 @@ if($_SERVER['REQUEST_METHOD']=== 'POST') {
                         <?=$errors['email']?>
                     </div></br>
                     <label>Пароль</label>
-                    <input type="password"  class="form-control <?=$errors['password'] ? 'is-invalid':''?>" name="password" value="<?=$user['password']?>" placeholder="Введите ваш пароль">
+                    <input type="password"  class="form-control <?=$errors['password'] ? 'is-invalid':''?>" name="password" value="" placeholder="Введите ваш пароль">
                     <div class="invalid-feedback">
                         <?=$errors['password']?>
                     </div>
