@@ -97,6 +97,12 @@ function validateUser ($user, &$errors){
         $isValid = false;
         $errors ['password'] = 'Данное поле не  может содержать в себе пробелы и быть меньше 6 символов';
     }
+    if (preg_match($check_password, $user['password_confirm'])) {
+    }
+    else{
+        $isValid = false;
+        $errors ['password_confirm'] = 'Данное поле не  может содержать в себе пробелы и быть меньше 6 символов';
+    }
 
     if (preg_match($check_email, $user['email'])) {
     }

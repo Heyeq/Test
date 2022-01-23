@@ -56,30 +56,30 @@ if($_SERVER['REQUEST_METHOD']=== 'POST') {
                 <h2>Регестрация нового пользователя</h2>
             </div>
             <div class="card-body">
-                <form action="" method="POST"  enctype="multipart/form-data" >
+                <form action="" method="POST"  enctype="multipart/form-data">
                     <br class="form-group" >
                     <label>Имя</label><br>
-                    <input type="text"   class="form-control <?=$errors['full_name'] ? 'is-invalid':''?>" name="full_name" value="<?= $user['full_name']?>"  placeholder="Введите ваше имя" >
+                    <input type="text"   class="form-control <?=$errors['full_name'] ? 'is-invalid':''?>" name="full_name" value="<?= $user['full_name']?>"  placeholder="Введите ваше имя" required >
                     <div class="invalid-feedback">
                         <?=$errors['full_name']?>
                     </div></br>
                     <label>Логин</label><br>
-                    <input type="login"  class="form-control <?=$errors['login'] ? 'is-invalid':''?>"  name="login" value="<?=$user['login']?>"   placeholder="Введите ваш логин" >
+                    <input type="login"  class="form-control <?=$errors['login'] ? 'is-invalid':''?>"  name="login" value="<?=$user['login']?>"   placeholder="Введите ваш логин"  required>
                     <div class="invalid-feedback">
                         <?=$errors['login']?>
                     </div></br>
                      <label>Email</label>
-                    <input type="email"  class="form-control <?=$errors['email'] ? 'is-invalid':''?>"  name="email" value="<?=$user['email']?>" placeholder="Введите ваше Email" >
+                    <input type="email"  class="form-control <?=$errors['email'] ? 'is-invalid':''?>"  name="email" value="<?=$user['email']?>" placeholder="Введите ваше Email" required >
                     <div class="invalid-feedback">
                         <?=$errors['email']?>
                     </div></br>
                     <label>Пароль</label>
-                    <input type="password"  class="form-control <?=$errors['password'] ? 'is-invalid':''?>" name="password" placeholder="Введите ваш пароль" >
+                    <input type="password"  class="form-control <?=$errors['password'] ? 'is-invalid':''?>" name="password" placeholder="Введите ваш пароль">
                     <div class="invalid-feedback">
                         <?=$errors['password']?>
                     </div></br>
                     <label>Потверждение пароля</label>
-                    <input type="password"  class="form-control <?=$errors['password_confirm'] ? 'is-invalid':''?>" name="password_confirm" value="" placeholder="Введите ваш пароль" >
+                    <input type="password"  class="form-control <?=$errors['password_confirm'] ? 'is-invalid':''?>" name="password_confirm" value="" placeholder="Введите ваш пароль">
                     <div class="invalid-feedback">
                         <?=$errors['password_confirm']?>
                     </div>
